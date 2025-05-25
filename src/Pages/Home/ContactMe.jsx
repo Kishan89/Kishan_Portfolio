@@ -25,28 +25,21 @@ export default function ContactMe() {
     e.preventDefault();
     setStatus("Sending...");
 
-    try {
-      const res = await fetch(
-        "https://formsubmit.co/ajax/kishan895737@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            "First Name": formData.firstName,
-            "Last Name": formData.lastName,
-            Email: formData.email,
-            Phone: formData.phone,
-            Topic: formData.topic,
-            Message: formData.message,
-          }),
-        }
-      );
+    const form = new FormData();
+    form.append("First Name", formData.firstName);
+    form.append("Last Name", formData.lastName);
+    form.append("Email", formData.email);
+    form.append("Phone", formData.phone);
+    form.append("Topic", formData.topic);
+    form.append("Message", formData.message);
 
-      const result = await res.json();
-      if (result.success === "true") {
+    try {
+      const res = await fetch("https://formsubmit.co/kishan895737@gmail.com", {
+        method: "POST",
+        body: form,
+      });
+
+      if (res.ok) {
         setStatus("Message sent successfully!");
         setFormData({
           firstName: "",
