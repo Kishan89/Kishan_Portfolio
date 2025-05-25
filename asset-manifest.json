@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Kishan_Portfolio/static/css/main.43329112.css",
+    "main.js": "/Kishan_Portfolio/static/js/main.65f5b423.js",
+    "index.html": "/Kishan_Portfolio/index.html",
+    "main.43329112.css.map": "/Kishan_Portfolio/static/css/main.43329112.css.map",
+    "main.65f5b423.js.map": "/Kishan_Portfolio/static/js/main.65f5b423.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43329112.css",
+    "static/js/main.65f5b423.js"
+  ]
+}
