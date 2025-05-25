@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Kishan_Portfolio/static/css/main.43329112.css",
-    "main.js": "/Kishan_Portfolio/static/js/main.88261532.js",
+    "main.js": "/Kishan_Portfolio/static/js/main.9733079c.js",
     "index.html": "/Kishan_Portfolio/index.html",
     "main.43329112.css.map": "/Kishan_Portfolio/static/css/main.43329112.css.map",
-    "main.88261532.js.map": "/Kishan_Portfolio/static/js/main.88261532.js.map"
+    "main.9733079c.js.map": "/Kishan_Portfolio/static/js/main.9733079c.js.map"
   },
   "entrypoints": [
     "static/css/main.43329112.css",
-    "static/js/main.88261532.js"
+    "static/js/main.9733079c.js"
   ]
 }
