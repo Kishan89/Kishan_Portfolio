@@ -2,25 +2,25 @@
   "skills": [
     {
       "id": "1",
-      "src": "/Kishan_Portfolio/img/product-chain-1.png",
+      "src": "/img/product-chain-1.png",
       "title": "Front-End",
       "description": "Frontend developer skilled in building responsive and interactive web interfaces using HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, and API integration."
     },
     {
       "id": "2",
-      "src": "/Kishan_Portfolio/img/tag-1.png",
+      "src": "/img/tag-1.png",
       "title": "React",
       "description": "Skilled in building fast SPAs using React.js, JSX, Hooks (useState, useEffect), Context API, and React Router. Experienced with Redux, Axios, and component-driven development."
     },
     {
       "id": "3",
-      "src": "/Kishan_Portfolio/img/feather-pen-2.png",
+      "src": "/img/feather-pen-2.png",
       "title": "React Native",
       "description": "Learning to build mobile apps using React Native. Familiar with core components, React Navigation, Flexbox styling, Expo, and performance tools like FlatList."
     },
     {
       "id": "4",
-      "src": "/Kishan_Portfolio/img/feather-pen-1.png",
+      "src": "/img/feather-pen-1.png",
       "title": "Competitive Programmer",
       "description": "Competitive programmer with strong skills in C++ and Data Structures & Algorithms. Solving problems on platforms like Codeforces, LeetCode, and CodeChef."
     }
@@ -30,25 +30,25 @@
       "title": "Worldwise",
       "description": "A smart travel tracking application built with React, helping users mark and remember visited places.",
       "link": "https://github.com/Kishan89/Worldwise",
-      "src": "/Kishan_Portfolio/img/worldwise.png"
+      "src": "/img/worldwise.png"
     },
     {
       "title": "Weather App",
       "description": "A real-time weather forecast application built with React and OpenWeather API integration.",
       "link": "https://github.com/Kishan89/WeatherAppReact",
-      "src": "/Kishan_Portfolio/img/weatherapp.png"
+      "src": "/img/weatherapp.png"
     },
     {
       "title": "Travellistapp",
       "description": "A packing list app for travellers, helping organize items efficiently before trips. Built with React.",
       "link": "https://github.com/Kishan89/travellistapp",
-      "src": "/Kishan_Portfolio/img/travellist.jpg"
+      "src": "/img/travellist.jpg"
     },
     {
       "title": "React-Quiz",
       "description": "A dynamic and interactive quiz application built using React, designed to test and enhance knowledge through fun quizzes.",
       "link": "https://github.com/Kishan89/React-Quiz",
-      "src": "/Kishan_Portfolio/img/react-quiz.png"
+      "src": "/img/react-quiz.png"
     }
   ]
 }

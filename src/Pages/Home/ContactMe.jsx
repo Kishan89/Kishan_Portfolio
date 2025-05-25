@@ -10,54 +10,61 @@ export default function ContactMe() {
     message: "",
     terms: false,
   });
+
   const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: type === "checkbox" ? checked : value,
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
-    const res = await fetch(
-      "https://formsubmit.co/ajax/kishan895737@gmail.com",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          "First Name": formData.firstName,
-          "Last Name": formData.lastName,
-          Email: formData.email,
-          Phone: formData.phone,
-          Topic: formData.topic,
-          Message: formData.message,
-        }),
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/kishan895737@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            "First Name": formData.firstName,
+            "Last Name": formData.lastName,
+            Email: formData.email,
+            Phone: formData.phone,
+            Topic: formData.topic,
+            Message: formData.message,
+          }),
+        }
+      );
+
+      const result = await res.json();
+      if (result.success === "true") {
+        setStatus("Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          topic: "",
+          message: "",
+          terms: false,
+        });
+      } else {
+        setStatus("Failed to send message.");
       }
-    );
-    const result = await res.json();
-    if (result.success === "true") {
-      setStatus("Message sent successfully!");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        topic: "",
-        message: "",
-        terms: false,
-      });
-    } else {
-      setStatus("Failed to send message.");
+    } catch (error) {
+      setStatus("Something went wrong. Please try again later.");
     }
   };
+
   return (
     <section id="Contact" className="contact--section">
       <div>
