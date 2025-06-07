@@ -1,8 +1,9 @@
 export default function ThankYou() {
   return (
-    <section className="thankyou--section">
-      <h2>Thank You!</h2>
-      <p>Your message has been successfully sent. I’ll get back to you soon!</p>
-    </section>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <h1 className="text-2xl font-bold text-green-600">
+        Thank you! Your message has been sent.
+      </h1>
+    </div>
   );
 }

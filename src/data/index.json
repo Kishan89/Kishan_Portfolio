@@ -16,7 +16,7 @@
       "id": "3",
       "src": "/img/feather-pen-2.png",
       "title": "React Native",
-      "description": "Learning to build mobile apps using React Native. Familiar with core components, React Navigation, Flexbox styling, Expo, and performance tools like FlatList."
+      "description": "Building mobile apps confidently using React Native with intermediate proficiency. Experienced with core components, React Navigation, Flexbox layout, Expo ecosystem, performance optimization using FlatList, and modular component design."
     },
     {
       "id": "4",
@@ -33,10 +33,10 @@
       "src": "/img/worldwise.png"
     },
     {
-      "title": "Weather App",
-      "description": "A real-time weather forecast application built with React and OpenWeather API integration.",
-      "link": "https://github.com/Kishan89/WeatherAppReact",
-      "src": "/img/weatherapp.png"
+      "title": "Guess Game",
+      "description": "A number guessing game built with React Native, where the app tries to guess the number you have in mind.",
+      "link": "https://github.com/Kishan89/GuessGame",
+      "src": "./img/guessgame.png"
     },
     {
       "title": "Travellistapp",

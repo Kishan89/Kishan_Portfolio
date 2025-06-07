@@ -10,54 +10,54 @@ export default function ContactMe() {
     message: "",
     terms: false,
   });
-
   const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
+    setFormData({
+      ...formData,
       [name]: type === "checkbox" ? checked : value,
-    }));
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
-    const form = new FormData();
-    form.append("First Name", formData.firstName);
-    form.append("Last Name", formData.lastName);
-    form.append("Email", formData.email);
-    form.append("Phone", formData.phone);
-    form.append("Topic", formData.topic);
-    form.append("Message", formData.message);
-
-    try {
-      const res = await fetch("https://formsubmit.co/kishan895737@gmail.com", {
+    const res = await fetch(
+      "https://formsubmit.co/ajax/kishan895737@gmail.com",
+      {
         method: "POST",
-        body: form,
-      });
-
-      if (res.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          topic: "",
-          message: "",
-          terms: false,
-        });
-      } else {
-        setStatus("Failed to send message.");
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          "First Name": formData.firstName,
+          "Last Name": formData.lastName,
+          Email: formData.email,
+          Phone: formData.phone,
+          Topic: formData.topic,
+          Message: formData.message,
+        }),
       }
-    } catch (error) {
-      setStatus("Something went wrong. Please try again later.");
+    );
+    const result = await res.json();
+    if (result.success === "true") {
+      setStatus("Message sent successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        topic: "",
+        message: "",
+        terms: false,
+      });
+    } else {
+      setStatus("Failed to send message.");
     }
   };
-
   return (
     <section id="Contact" className="contact--section">
       <div>

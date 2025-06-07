@@ -20,7 +20,7 @@ export default function HeroSection() {
         </div>
         <div style={{ marginTop: "20px" }}>
           <a
-            href={process.env.PUBLIC_URL + "/kishanresume.pdf"}
+            href={process.env.PUBLIC_URL + "/MyUpdatedResume.pdf"}
             className="btn btn-primary"
             download
           >
