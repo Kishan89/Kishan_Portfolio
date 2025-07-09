@@ -1,162 +1,147 @@
-import { useState, useEffect, useContext } from "react";
-import { Link } from "react-scroll";
+import React, { useContext, useState } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { ThemeContext } from "../../App";
+import { motion, AnimatePresence } from "framer-motion";
 
-function Navbar() {
-  const [navActive, setNavActive] = useState(false);
+export default function Navbar({ activeSection }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const isDarkMode = theme === "dark";
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleNav = () => {
-    setNavActive(!navActive);
+  const navItems = ["About", "Education", "Skills", "Projects", "Contact"];
+
+  const handleNavClick = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
   };
-
-  const closeMenu = () => {
-    setNavActive(false);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 500) closeMenu();
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (window.innerWidth <= 1200) closeMenu();
-  }, []);
 
   return (
-    <nav className={`navbar ${navActive ? "active" : ""}`}>
-      <div>
-        <img
-          src={process.env.PUBLIC_URL + "/img/kishan-logo.svg"}
-          alt="Kishan-logo"
-        />
-      </div>
+    <nav
+      className={`fixed top-0 w-full z-50 h-16 backdrop-blur-md border-b shadow-md ${
+        isDarkMode ? "border-white/10" : "border-slate-300"
+      }`}
+    >
+      {/* Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 via-purple-400/30 to-pink-400/30 opacity-60 pointer-events-none" />
 
-      <a
-        className={`nav__hamburger ${navActive ? "active" : ""}`}
-        onClick={toggleNav}
-      >
-        <span className="nav__hamburger__line"></span>
-        <span className="nav__hamburger__line"></span>
-        <span className="nav__hamburger__line"></span>
-      </a>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex justify-between items-center h-full">
+          {/* Logo */}
+          <div
+            className="text-[1.75rem] leading-[2.25rem] font-bold cursor-pointer bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:scale-105 transition duration-300"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Kishan
+          </div>
 
-      <div className={`navbar--items ${navActive ? "active" : ""}`}>
-        <ul>
-          <li>
-            <Link
-              onClick={closeMenu}
-              to="heroSection"
-              className="navbar--content"
-              spy
-              smooth
-              offset={-70}
-              duration={500}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={closeMenu}
-              to="mySkills"
-              className="navbar--content"
-              spy
-              smooth
-              offset={-70}
-              duration={500}
-            >
-              My Skills
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={closeMenu}
-              to="AboutMe"
-              className="navbar--content"
-              spy
-              smooth
-              offset={-70}
-              duration={500}
-            >
-              About Me
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={closeMenu}
-              to="MyPortfolio"
-              className="navbar--content"
-              spy
-              smooth
-              offset={-70}
-              duration={500}
-            >
-              My Portfolio
-            </Link>
-          </li>
-        </ul>
-      </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => handleNavClick(item.toLowerCase())}
+                className={`px-3 py-1.5 rounded-md text-base font-medium transition duration-300 ${
+                  isDarkMode
+                    ? `hover:text-cyan-400 hover:bg-white/10 ${
+                        activeSection === item.toLowerCase()
+                          ? "text-cyan-400 bg-white/10"
+                          : "text-white"
+                      }`
+                    : `hover:text-pink-600 hover:bg-pink-100 ${
+                        activeSection === item.toLowerCase()
+                          ? "text-pink-600 bg-pink-100"
+                          : "text-slate-800"
+                      }`
+                }`}
+              >
+                {item}
+              </button>
+            ))}
 
-      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-        <div
-          className="theme-toggle"
-          onClick={toggleTheme}
-          title="Toggle theme"
-        >
-          {theme === "light" ? (
-            <svg
-              className="icon sun-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="orange"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className={`ml-2 p-2 rounded-full transition ${
+                isDarkMode
+                  ? "text-white hover:text-cyan-400 border border-white/30 bg-white/5"
+                  : "text-slate-800 hover:text-pink-600 border border-gray-300 bg-white"
+              }`}
             >
-              <circle cx="12" cy="12" r="5" />
-              <g className="rays">
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-              </g>
-            </svg>
-          ) : (
-            <svg
-              className="icon moon-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="gold"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+          </div>
+
+          {/* Mobile Controls */}
+          <div className="md:hidden relative flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition ${
+                isDarkMode
+                  ? "text-white hover:text-cyan-400"
+                  : "text-slate-800 hover:text-pink-600"
+              }`}
             >
-              <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-            </svg>
-          )}
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
+            {/* Hamburger */}
+            <div className="relative">
+              <button
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                className={`p-2 rounded-md transition ${
+                  isDarkMode
+                    ? "text-white hover:text-cyan-400"
+                    : "text-slate-800 hover:text-pink-600"
+                }`}
+              >
+                {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+
+              {/* Animated Dropdown Menu */}
+              <AnimatePresence>
+                {isMobileMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -5 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -5 }}
+                    transition={{ duration: 0.2 }}
+                    className={`absolute right-0 top-full mt-2 w-48 rounded-xl shadow-xl ring-1 ring-black/10 z-40 backdrop-blur-sm ${
+                      isDarkMode
+                        ? "bg-slate-900/80 text-white"
+                        : "bg-white/80 text-slate-800"
+                    }`}
+                  >
+                    {/* Dropdown arrow */}
+                    <div className="absolute top-[-6px] right-4 w-3 h-3 rotate-45 z-[-1] bg-inherit shadow-sm border-t border-l border-black/10 dark:border-white/10" />
+
+                    {navItems.map((item) => (
+                      <button
+                        key={item}
+                        onClick={() => handleNavClick(item.toLowerCase())}
+                        className={`w-full text-left px-4 py-2 rounded-md text-sm font-medium transition ${
+                          isDarkMode
+                            ? `hover:text-cyan-400 hover:bg-white/10 ${
+                                activeSection === item.toLowerCase()
+                                  ? "text-cyan-400 bg-white/10"
+                                  : ""
+                              }`
+                            : `hover:text-pink-600 hover:bg-pink-100 ${
+                                activeSection === item.toLowerCase()
+                                  ? "text-pink-600 bg-pink-100"
+                                  : ""
+                              }`
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
       </div>
-      <Link
-        onClick={closeMenu}
-        to="Contact"
-        className="btn btn-outline-primary"
-        spy
-        smooth
-        offset={-70}
-        duration={500}
-      >
-        Contact Me
-      </Link>
     </nav>
   );
 }
-
-export default Navbar;

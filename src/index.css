@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 🌤️ Light Theme — Enhanced for readability and aesthetics */
+
+    /* Background: Cool-neutral tones for better contrast */
+    --gradient-about-bg-1: #f0f4f8; /* slate-50 */
+    --gradient-about-bg-2: #e2e8f0; /* slate-100 */
+    --gradient-about-bg-3: #cbd5e1; /* slate-200 */
+
+    /* Glow / Accent: Vibrant but readable */
+    --gradient-glow-1: #38bdf8; /* sky-400 */
+    --gradient-glow-2: #0ea5e9; /* sky-500 */
+    --gradient-glow-3: #0284c7; /* sky-600 */
+
+    /* Cards / Blur */
+    --card-bg: rgba(255, 255, 255, 0.55);
+
+    /* Primary Gradient */
+    --gradient-primary: linear-gradient(
+      to bottom right,
+      var(--gradient-about-bg-1),
+      var(--gradient-about-bg-2),
+      var(--gradient-about-bg-3)
+    );
+
+    --gradient-glow: linear-gradient(
+      to bottom right,
+      var(--gradient-glow-1),
+      var(--gradient-glow-2),
+      var(--gradient-glow-3)
+    );
+  }
+
+  .dark {
+    --gradient-about-bg-1: #101935;
+    --gradient-about-bg-2: #2d1e50;
+    --gradient-about-bg-3: #5b2b84;
+
+    --gradient-glow-1: #6fa7e6;
+    --gradient-glow-2: #2251b6;
+    --gradient-glow-3: #9c6ee8;
+
+    --card-bg: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-glow-gradient {
+    background: radial-gradient(
+      circle at top,
+      rgba(34, 211, 238, 0.3),
+      transparent
+    );
+  }
+
+  .card-bg {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+  }
+
+  .timeline-gradient {
+    background: linear-gradient(to bottom, #22d3ee, #a855f7, #ec4899);
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(to right, #22d3ee, #67e8f9, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(to right, #c084fc, #a855f7, #7e22ce);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-pink {
+    background: linear-gradient(to right, #fb7185, #ec4899, #d946ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
