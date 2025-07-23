@@ -7,6 +7,7 @@ import HeroSection from "../HeroSection";
 import MySkills from "../MySkills";
 import MyPortfolio from "../MyPortfolio";
 import { ThemeContext } from "../../../App";
+import MyExperience from "../MyExperience";
 
 export default function Home() {
   const [activeProjectCategory, setActiveProjectCategory] =
@@ -37,6 +38,7 @@ export default function Home() {
       />
       <AboutSection isDarkMode={isDarkMode} />
       <EducationSection isDarkMode={isDarkMode} />
+      <MyExperience isDarkMode={isDarkMode} />
       <MySkills isDarkMode={isDarkMode} />
       <MyPortfolio
         isDarkMode={isDarkMode}

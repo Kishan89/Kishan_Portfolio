@@ -229,3 +229,36 @@ export const education = [
     extra: ["Focus on Science and Mathematics"],
   },
 ];
+export const experience = [
+  {
+    id: 1,
+    title: "React Native Developer Intern",
+    company: "Wecofy",
+    dates: "July 2024 – Present",
+    icon: "📱",
+    color: "cyan",
+    description: `
+      <ul class="list-disc pl-5">
+        <li>Worked on Juristo app frontend and API integration.</li>
+        <li>Integrated thermal printer via native modules.</li>
+        <li>Contributed to debugging native module issues after ejecting from Expo to Bare workflow.</li>
+        <li>Collaborated with team to enhance app performance and user experience.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 2,
+    title: "S&T Intern",
+    company: "North Eastern Railway",
+    dates: "June 2025 – July 2025",
+    icon: "🚉",
+    color: "pink",
+    description: `
+      <ul class="list-disc pl-5">
+        <li>Learned signaling & telecom systems in live railway setup.</li>
+        <li>Understood interlocking, point machines & infrastructure.</li>
+        <li>Gained practical knowledge of railway operations.</li>
+      </ul>
+    `,
+  },
+];

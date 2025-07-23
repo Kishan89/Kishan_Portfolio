@@ -8,7 +8,15 @@ export default function Navbar({ activeSection }) {
   const isDarkMode = theme === "dark";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = ["About", "Education", "Skills", "Projects", "Contact"];
+  // "Experience" inserted after "Education"
+  const navItems = [
+    "About",
+    "Education",
+    "Experience",
+    "Skills",
+    "Projects",
+    "Contact",
+  ];
 
   const handleNavClick = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -21,7 +29,6 @@ export default function Navbar({ activeSection }) {
         isDarkMode ? "border-white/10" : "border-slate-300"
       }`}
     >
-      {/* Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 via-purple-400/30 to-pink-400/30 opacity-60 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -111,7 +118,6 @@ export default function Navbar({ activeSection }) {
                         : "bg-white/80 text-slate-800"
                     }`}
                   >
-                    {/* Dropdown arrow */}
                     <div className="absolute top-[-6px] right-4 w-3 h-3 rotate-45 z-[-1] bg-inherit shadow-sm border-t border-l border-black/10 dark:border-white/10" />
 
                     {navItems.map((item) => (
