@@ -9,8 +9,9 @@ export const personalInfo = {
   birthday: "02/10/2003",
   age: 21,
   profileImage: "/img/kishanimg.png",
+  aboutImage: "/img/image.png",
   description:
-    "Frontend developer proficient in React, Next.js, and RESTful API integration, with hands-on experience in mobile app development using React Native. I’m passionate about combining intuitive UI design with powerful functionality across web and mobile platforms. With a strong background in electronics, I love bridging the gap between hardware and software to craft innovative, scalable, and real-world digital solutions.",
+    "Frontend developer proficient in React, Next.js, and RESTful API integration, with hands-on experience in Mobile App development using React Native. I’m passionate about combining intuitive UI design with powerful functionality across web and mobile platforms. With a strong background in electronics, I love bridging the gap between hardware and software to craft innovative, scalable, and real-world digital solutions.",
   github: "https://github.com/Kishan89",
   linkedin: "https://www.linkedin.com/in/kishan8957",
   instagram: "https://www.instagram.com/kishan_021003/",
@@ -185,7 +186,7 @@ export const skills = {
     "Bootstrap",
     "Tailwind CSS",
   ],
-  "Tools & Technologies": ["Git", "GitHub", "Excel", "MATLAB", "VS Code"],
+  "Tools & Technologies": ["Git", "GitHub", "Firebase", "Excel", "MATLAB", "VS Code"],
   "Soft Skills": [
     "Problem Solving",
     "Adaptability",

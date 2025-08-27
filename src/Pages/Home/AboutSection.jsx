@@ -25,7 +25,7 @@ export default function AboutSection() {
             <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden">
               <div className="absolute -inset-2 bg-glow-gradient rounded-2xl blur-2xl opacity-40 z-0 animate-pulse"></div>
               <img
-                src={personalInfo.profileImage}
+                src={personalInfo.aboutImage}
                 alt="Kishan - Profile"
                 className="relative w-full h-full object-cover rounded-2xl z-10 shadow-2xl border-[4px] border-white/10"
               />
