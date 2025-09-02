@@ -26,6 +26,17 @@ export const projectCategories = [
 export const projects = {
   "react-native": [
     {
+  title: "PeerPrep App",
+  description: "A real-time peer-to-peer interview prep app with skill-based matching, shared whiteboard, Community features, quizzes, chat, and audio/video calling.",
+  tech: ["React Native", "JavaScript", "Firebase", "Expo", "Firestore"],
+  role: "Mobile App Developer",
+  github: "https://github.com/Kishan89/PeerPrep", 
+  live: "https://drive.google.com/file/d/1hqm3KP0StLWB5inx4gL4DVu4i1GW5sWH/view?usp=drive_link",
+  image:
+    "https://resources.workable.com/wp-content/uploads/2018/05/prepare-interviews-featured.png",
+},
+
+    {
       title: "Expense Tracker App",
       description: "Track daily expenses with pie charts and local storage.",
       tech: ["React Native", "JavaScript", "Firebase", "AsyncStorage"],
