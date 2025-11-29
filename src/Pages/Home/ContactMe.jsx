@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Listbox } from "@headlessui/react";
+import { motion } from "framer-motion";
 import { personalInfo } from "./data/portfolioData";
 
 const topics = [
@@ -46,25 +47,25 @@ const ContactMe = forwardRef((props, ref) => {
     <section
       id="contact"
       ref={ref}
-      className={`py-20 px-4 sm:px-6 lg:px-8 ${sectionBg}`}
+      className={`py-16 sm:py-20 px-4 sm:px-6 lg:px-8 ${sectionBg}`}
     >
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16 text-gradient-pink dark:text-gradient-cyan">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
           Get In Touch
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {/* Left Column */}
           <div>
             <h3
-              className={`text-2xl font-semibold mb-6 ${
-                isDarkMode ? "text-cyan-400" : "text-sky-600"
+              className={`text-xl sm:text-2xl font-semibold mb-5 sm:mb-6 ${
+                isDarkMode ? "text-sky-400" : "text-blue-600"
               }`}
             >
               Let's Connect
             </h3>
             <p
-              className={`mb-8 text-base sm:text-lg leading-relaxed ${
+              className={`mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed ${
                 isDarkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
@@ -72,11 +73,11 @@ const ContactMe = forwardRef((props, ref) => {
               hello! Drop a message anytime.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center">
-                <Mail className="w-6 h-6 mr-4 text-cyan-400" />
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 text-sky-500 flex-shrink-0" />
                 <span
-                  className={`text-base sm:text-lg ${
+                  className={`text-sm sm:text-base md:text-lg break-all ${
                     isDarkMode ? "text-white" : "text-gray-800"
                   }`}
                 >
@@ -84,9 +85,9 @@ const ContactMe = forwardRef((props, ref) => {
                 </span>
               </div>
               <div className="flex items-center">
-                <Phone className="w-6 h-6 mr-4 text-cyan-400" />
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 text-sky-500 flex-shrink-0" />
                 <span
-                  className={`text-base sm:text-lg ${
+                  className={`text-sm sm:text-base md:text-lg ${
                     isDarkMode ? "text-white" : "text-gray-800"
                   }`}
                 >
@@ -95,7 +96,7 @@ const ContactMe = forwardRef((props, ref) => {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-5 mt-8">
+            <div className="flex flex-wrap gap-4 sm:gap-5 mt-6 sm:mt-8">
               {[
                 personalInfo.github,
                 personalInfo.linkedin,
@@ -107,21 +108,21 @@ const ContactMe = forwardRef((props, ref) => {
                   href={link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`hover:text-cyan-400 ${
-                    isDarkMode ? "text-gray-400" : "text-gray-600"
+                  className={`touch-target hover:text-sky-500 transition-colors ${
+                    isDarkMode ? "text-slate-400" : "text-slate-600"
                   }`}
                 >
-                  {idx === 0 && <Github className="w-7 h-7" />}
-                  {idx === 1 && <Linkedin className="w-7 h-7" />}
-                  {idx === 2 && <Instagram className="w-7 h-7" />}
-                  {idx === 3 && <Twitter className="w-7 h-7" />}
+                  {idx === 0 && <Github className="w-7 h-7 sm:w-8 sm:h-8" />}
+                  {idx === 1 && <Linkedin className="w-7 h-7 sm:w-8 sm:h-8" />}
+                  {idx === 2 && <Instagram className="w-7 h-7 sm:w-8 sm:h-8" />}
+                  {idx === 3 && <Twitter className="w-7 h-7 sm:w-8 sm:h-8" />}
                 </a>
               ))}
             </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className={`rounded-xl p-6 shadow-xl ${cardBg}`}>
+          <div className={`rounded-xl p-5 sm:p-6 shadow-xl ${cardBg}`}>
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -159,7 +160,7 @@ const ContactMe = forwardRef((props, ref) => {
                   setStatusMessage("❌ Something went wrong.");
                 }
               }}
-              className="space-y-6"
+              className="space-y-5 sm:space-y-6"
             >
               <input
                 type="text"
@@ -169,7 +170,7 @@ const ContactMe = forwardRef((props, ref) => {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
-                className={`w-full border rounded-md px-4 py-3 text-sm sm:text-base ${inputStyles} ${focusStyles}`}
+                className={`w-full border rounded-md px-4 py-3 sm:py-3.5 text-sm sm:text-base touch-target ${inputStyles} ${focusStyles}`}
               />
 
               <input
@@ -180,7 +181,7 @@ const ContactMe = forwardRef((props, ref) => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
-                className={`w-full border rounded-md px-4 py-3 text-sm sm:text-base ${inputStyles} ${focusStyles}`}
+                className={`w-full border rounded-md px-4 py-3 sm:py-3.5 text-sm sm:text-base touch-target ${inputStyles} ${focusStyles}`}
               />
 
               <div className="relative">
@@ -191,7 +192,7 @@ const ContactMe = forwardRef((props, ref) => {
                   }
                 >
                   <Listbox.Button
-                    className={`w-full flex justify-between items-center rounded-md border px-4 py-3 text-sm sm:text-base ${inputStyles} ${focusStyles}`}
+                    className={`w-full flex justify-between items-center rounded-md border px-4 py-3 sm:py-3.5 text-sm sm:text-base touch-target ${inputStyles} ${focusStyles}`}
                   >
                     {topics.find((t) => t.id === formData.topic)?.name ||
                       "Choose a topic"}
@@ -210,7 +211,7 @@ const ContactMe = forwardRef((props, ref) => {
                         key={idx}
                         value={topic.id}
                         className={({ active }) =>
-                          `px-4 py-2 cursor-pointer ${
+                          `px-4 py-2.5 sm:py-3 cursor-pointer touch-target ${
                             active
                               ? isDarkMode
                                 ? "bg-cyan-600"
@@ -244,16 +245,19 @@ const ContactMe = forwardRef((props, ref) => {
                 className={`w-full border rounded-md px-4 py-3 text-sm sm:text-base resize-none ${inputStyles} ${focusStyles}`}
               ></textarea>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-400 via-blue-500 via-55% to-pink-500 hover:from-cyan-500 hover:via-purple-600 hover:to-pink-600 text-white font-semibold text-base sm:text-lg py-3 rounded-md shadow-lg transition duration-300 ease-in-out"
+                className="touch-target w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-base sm:text-lg py-3 sm:py-3.5 rounded-md shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 ease-in-out relative overflow-hidden group"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Send Message
-              </button>
+                <span className="relative z-10">Send Message</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.button>
 
               {statusMessage && (
                 <p
-                  className={`font-medium mt-2 ${
+                  className={`font-medium mt-2 text-sm sm:text-base ${
                     statusMessage.startsWith("✅")
                       ? "text-green-400"
                       : statusMessage.startsWith("⏳")

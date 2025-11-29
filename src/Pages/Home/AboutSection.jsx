@@ -6,11 +6,11 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-primary text-neutral-900 dark:text-white transition-colors duration-500"
+      className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary text-neutral-900 dark:text-white transition-colors duration-500"
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient-pink dark:text-gradient-cyan"
+          className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-12 bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -19,26 +19,43 @@ export default function AboutSection() {
           About Me
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left - Image */}
-          <div className="flex justify-center">
-            <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden">
-              <div className="absolute -inset-2 bg-glow-gradient rounded-2xl blur-2xl opacity-40 z-0 animate-pulse"></div>
-              <img
+          <motion.div 
+            className="flex justify-center"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <motion.div 
+              className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden hover-lift"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="absolute -inset-3 bg-glow-gradient rounded-2xl blur-2xl opacity-50 z-0 animate-pulse"></div>
+              <motion.img
                 src={personalInfo.aboutImage}
                 alt="Kishan - Profile"
-                className="relative w-full h-full object-cover rounded-2xl z-10 shadow-2xl border-[4px] border-white/10"
+                loading="lazy"
+                className="relative w-full h-full object-cover rounded-2xl z-10 shadow-2xl border-4 border-white/10"
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right - Text Content */}
-          <div className="space-y-6 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl font-semibold">
+          <div className="space-y-5 sm:space-y-6 text-center md:text-left">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold leading-tight">
               Frontend Developer & Competitive Programmer
             </h3>
 
-            <p className="text-base sm:text-lg leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
               I'm a passionate frontend and React developer focused on crafting
               responsive, intuitive UIs. I'm also a competitive programmer
               skilled in C++, DSA, and problem solving. With a strong foundation
@@ -46,9 +63,10 @@ export default function AboutSection() {
               perspective to web development, combining technical precision with
               creative design.
             </p>
+            
             {/* Info Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-              <div className="space-y-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base">
+              <div className="space-y-1.5">
                 <p>
                   <strong>Birthday:</strong> {personalInfo.birthday}
                 </p>
@@ -62,16 +80,16 @@ export default function AboutSection() {
                   <strong>City:</strong> {personalInfo.city}
                 </p>
               </div>
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 <p>
                   <strong>Website:</strong>{" "}
                   <a
                     href="https://kishan-eta.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-600 hover:underline"
+                    className="text-blue-600 dark:text-sky-400 hover:text-blue-700 dark:hover:text-sky-300 hover:underline transition-colors touch-target inline-block"
                   >
-                    https://kishan-eta.vercel.app/
+                    kishan-eta.vercel.app
                   </a>
                 </p>
                 <p>

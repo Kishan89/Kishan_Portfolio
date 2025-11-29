@@ -262,7 +262,7 @@ export const experience = [
     id: 2,
     title: "React Native Developer Intern",
     company: "Wecofy",
-    dates: "July 2024 – Present",
+    dates: "June 2025 – August 2025",
     icon: "📱",
     color: "cyan",
     description: `
