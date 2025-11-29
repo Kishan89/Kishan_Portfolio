@@ -245,6 +245,22 @@ export const experience = [
   {
     id: 1,
     title: "React Native Developer Intern",
+    company: "Nexeed (Distraction-free student social app)",
+    location: "Remote",
+    dates: "September 2024 – Present",
+    icon: "💻",
+    color: "emerald",
+    description: `
+      <ul class="list-disc pl-5">
+        <li>Developed the complete frontend including post creation, profile setup, responsive UI, caching, and overall performance optimization.</li>
+        <li>Integrated REST APIs, real-time chat, push notifications (FCM + OneSignal), Google OAuth, Google Analytics, polls, and image optimization using React Native (Expo).</li>
+        <li>Tech Stack: React Native, TypeScript, Expo , Firebase, Supabase</li>
+      </ul>
+    `,
+  },
+  {
+    id: 2,
+    title: "React Native Developer Intern",
     company: "Wecofy",
     dates: "July 2024 – Present",
     icon: "📱",
@@ -259,7 +275,7 @@ export const experience = [
     `,
   },
   {
-    id: 2,
+    id: 3,
     title: "S&T Intern",
     company: "North Eastern Railway",
     dates: "June 2025 – July 2025",
